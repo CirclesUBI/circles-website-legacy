@@ -4,7 +4,7 @@
 
 Come visit us online:
 * [Website](https://joincircles.net/)
-* [chat](https://chat.joincircles.net/)
+* [Chat](https://chat.joincircles.net/)
 * [Twitter](https://twitter.com/CirclesUBI)
 
 
