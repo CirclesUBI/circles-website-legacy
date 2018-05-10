@@ -10,23 +10,22 @@ cache:
   directories:
     - node_modules
 # Deploy using awscli to enable pruning of removed files
-before_deploy: pip install --user awscli
+# before_deploy: pip install --user awscli
 deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: www.cafe-grundeinkommen.org
+  bucket: joincircles.net
   skip_cleanup: true
   local_dir: build
   acl: public_read
-  region: ap-northeast-1
-  endpoint: www.cafe-grundeinkommen.org.s3-website.eu-central-1.amazonaws.com
+  endpoint: http://joincircles.net.s3-website.eu-central-1.amazonaws.com
   on:
     branch: master
   region: eu-central-1
   cache_control: "max-age=21600"
-after_deploy:
-  # Allow `awscli` to make requests to CloudFront.
-  - aws configure set preview.cloudfront true
-  # Invalidate every object in the targeted distribution.
-  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+# after_deploy:
+#   # Allow `awscli` to make requests to CloudFront.
+#   - aws configure set preview.cloudfront true
+#   # Invalidate every object in the targeted distribution.
+#   - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"

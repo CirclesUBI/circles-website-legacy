@@ -1,17 +1,17 @@
-# [Café Grundeinkommen](https://startbootstrap.com/template-overviews/agency/)
+# Circles Website
 
-## Berlin's Basic Income Café!
+## Basic Income on the Blockchain
 
-Come visit us online or in the flesh:
-* [Website](https://www.cafe-grundeinkommen.org)
-* [Facebook](https://www.facebook.com/CafeGrundeinkommen/)
-* [Meetup](http://www.meetup.com/Berlin-Basic-Income-Bedingungsloses-Grundeinkommen/)
-* [Twitter](https://twitter.com/UBI_Berlin)
+Come visit us online:
+* [Website](https://joincircles.net/)
+* [chat](https://chat.joincircles.net/)
+* [Twitter](https://twitter.com/CirclesUBI)
+
 
 ## Status
 
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/CirclesUBI/cafe-grundeinkommen-website/master/LICENSE)
-[![Build Status](https://travis-ci.org/CirclesUBI/cafe-grundeinkommen-website.svg?branch=master)](https://travis-ci.org/CirclesUBI/cafe-grundeinkommen-website)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/CirclesUBI/circles-website/master/LICENSE)
+[![Build Status](https://travis-ci.org/CirclesUBI/cafe-grundeinkommen-website.svg?branch=master)](https://travis-ci.org/CirclesUBI/circles-website)
 
 
 ## [Based on Bootstrap - Agency](https://startbootstrap.com/template-overviews/agency/)
