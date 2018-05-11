@@ -24,7 +24,7 @@ deploy:
     branch: master
   region: eu-central-1
   cache_control: "max-age=21600"
-# after_deploy:
+after_deploy:
   # Allow `awscli` to make requests to CloudFront.
   - aws configure set preview.cloudfront true
   # Invalidate every object in the targeted distribution.
