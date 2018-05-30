@@ -85,7 +85,9 @@ gulp.task('css', ['css:compile', 'css:minify'])
 gulp.task('js:minify', function () {
   return gulp.src([
     './js/*.js',
-    '!./js/*.min.js'
+    '!./js/*.min.js',
+    './js/jquery_i18n/*.js',
+    '!./js/jquery_i18n/*.min.js'
   ])
     .pipe(uglify())
     .pipe(rename({
@@ -102,6 +104,7 @@ gulp.task('files:main', function () {
   return gulp.src([
     './img//**/*',
     './mail//**/*',
+    './lang//**/*',
     'index.html'
   ], {base: './'}).pipe(gulp.dest(buildDir))
 })

@@ -45,10 +45,14 @@
   <!-- Custom styles for this template -->
   <link href="css/agency.min.css" rel="stylesheet">
 
+  <script lang="js">
+    var [lang, locale] = (((navigator.userLanguage || navigator.language).replace('-', '_')).toLowerCase()).split('_');
+    console.log(lang,locale)
+  </script>
+
 </head>
 
 <body id="page-top" class="index">
-
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -64,16 +68,16 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav text-uppercase ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#overview">About</a>
+            <a data-i18n="nav-about" class="nav-link js-scroll-trigger" href="#overview">About</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#participate">Participate</a>
+            <a data-i18n="nav-participate" class="nav-link js-scroll-trigger" href="#participate">Participate</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#partners">Partners</a>
+            <a data-i18n="nav-partners" class="nav-link js-scroll-trigger" href="#partners">Partners</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a data-i18n="nav-contact" class="nav-link js-scroll-trigger" href="#contact">Contact</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="https://chat.joincircles.net/" target="_blank">Chat</a>
@@ -95,6 +99,17 @@
             <a class="nav-link js-scroll-trigger" href="#contact">
               <i class="fa fa-envelope"></i>
             </a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link">              
+              <li class="dropdown">
+                <a href="#" data-i18n="lang-select" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Language<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">                    
+                  <li><a href="#" class="lang-switch" data-locale="de"><img height="20" width="30" src="img/flags/de_DE.png" alt="Deutsch" />Deutsch</a></li>
+                  <li><a href="#" class="lang-switch" data-locale="en"><img height="20" width="30" src="img/flags/en_UK.png" alt="English" />English</a></li>
+                </ul>
+              </li>              
+            </a>
           </li>
         </ul>
         </ul>
@@ -108,8 +123,8 @@
       <div class="intro-text">
         <div class="intro-heading-box">
           <div class="intro-heading">Circles</div>
-          <div class="intro-lead-in text-muted">A Basic Income on the Blockchain</div>
-          <a href="http://docs.joincircles.net" target="_blank" class="page-scroll btn btn-xl">
+          <div data-i18n="intro-subheading" class="intro-lead-in text-muted">A Basic Income on the Blockchain</div>
+          <a data-i18n="whitepaper-link" href="http://docs.joincircles.net" target="_blank" class="page-scroll btn btn-xl">
             Read the Whitepaper
           </a>
         </div>
@@ -122,9 +137,10 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading">What is
+          <h2 class="section-heading">
+            <span data-i18n="overview-heading">What is</span>
             <span class="hilight">Circles</span>?</h2>
-          <h3 class="section-subheading text-muted">Circles is an electronic cryptocurrency with the aim to create and distribute a globally accessible Universal Basic
+          <h3 data-i18n="overview-subheading" class="section-subheading text-muted">Circles is an electronic cryptocurrency with the aim to create and distribute a globally accessible Universal Basic
             Income.
           </h3>
         </div>
@@ -135,8 +151,8 @@
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-credit-card-alt fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Credit-Based</h4>
-          <p class="text-muted">In traditional debt-based currencies one sells goods, borrows money, or invests working power to receive money.
+          <h4 data-i18n="credit-heading" class="service-heading">Credit-Based</h4>
+          <p data-i18n="credit-subheading" class="text-muted">In traditional debt-based currencies one sells goods, borrows money, or invests working power to receive money.
             With Circles, one receives money unconditionally to engage with their community, creating value through offering
             goods or services.</p>
         </div>
@@ -145,8 +161,8 @@
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-connectdevelop fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Decentralized</h4>
-          <p class="text-muted">A worldwide basic income is something so powerful that no single entity should have control over the money or its
+          <h4 data-i18n="decentral-heading" class="service-heading">Decentralized</h4>
+          <p data-i18n="decentral-subheading" class="text-muted">A worldwide basic income is something so powerful that no single entity should have control over the money or its
             recipients. Using blockchain technology, Circles will be independent of any central issuing authority or institution.</p>
         </div>
         <div class="col-md-4">
@@ -154,8 +170,8 @@
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-chain fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Resilient</h4>
-          <p class="text-muted">Circles will run on the blockchain, a secure, decentralised, and autonomously managed database. Since the system's
+          <h4 data-i18n="resilient-heading" class="service-heading">Resilient</h4>
+          <p data-i18n="resilient-subheading" class="text-muted">Circles will run on the blockchain, a secure, decentralised, and autonomously managed database. Since the system's
             money emerges from a network of peer-to-peer relationships, it is possible to maintain stability on a local level,
             regardless of how things go at the national or global scale.</p>
         </div>
@@ -166,8 +182,8 @@
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-handshake-o fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Fostering Cooperation</h4>
-          <p class="text-muted">
+          <h4 data-i18n="cooperation-heading" class="service-heading">Fostering Cooperation</h4>
+          <p data-i18n="cooperation-subheading" class="text-muted">
             Circles promotes cooperation and economic interaction by creating local trade networks. The more connected community members
             are to each other, the more valuable their network becomes.</p>
         </div>
@@ -176,8 +192,8 @@
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-unlock fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Hoarding Resistant</h4>
-          <p class="text-muted">Circles has an inbuilt inflation target of 5% per annum to discourage hoarding. This also increases the velocity
+          <h4 data-i18n="hoarding-heading" class="service-heading">Hoarding Resistant</h4>
+          <p data-i18n="hoarding-subheading" class="text-muted">Circles has an inbuilt inflation target of 5% per annum to discourage hoarding. This also increases the velocity
             of money in circulation, creating more opportunities for exchange and economic activity.</p>
         </div>
         <div class="col-md-4">
@@ -185,12 +201,11 @@
             <i class="fa fa-circle fa-stack-2x text-primary"></i>
             <i class="fa fa-money fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Seigniorage</h4>
-          <p class="text-muted">Seigniorage refers to the profit made from the difference between the production costs and the value of money.
+          <h4 data-i18n="seigniorage-heading" class="service-heading">Seigniorage</h4>
+          <p data-i18n="seigniorage-subheading" class="text-muted">Seigniorage refers to the profit made from the difference between the production costs and the value of money.
             As Circles is a credit-based currency that costs almost nothing to create, you will retain almost all of this
             value as first spender.</p>
         </div>
-
       </div>
     </div>
   </section>
@@ -200,7 +215,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading">How can I participate?</h2>
+          <h2 data-i18n="participate-heading" class="section-heading">How can I participate?</h2>
         </div>
       </div>
       <br>
@@ -208,26 +223,29 @@
       <div class="row">
         <div class="col-md-6 text-center">
           <div class="card">
-            <h3 class="section-heading">Chat with Us</h3>
-            <p class="section-subheading text-muted">
+            <h3 data-i18n="chat-heading" class="section-heading">Chat with Us</h3>
+            <p data-i18n="chat-subheading" class="section-subheading text-muted">
               Circles is an open source community, and we are always looking for passionate contributors. If you are interested in participating
               or want to follow our progress, please join our chat room.
             </p>
             <h4 style="position: absolute;bottom: 0; width: 90%; padding-bottom: 10px">
-              <a href="https://chat.joincircles.net/home ">Join our Chat</a>
+              <a data-i18n="chat-link" href="https://chat.joincircles.net/home ">Join our Chat</a>
             </h4>
           </div>
         </div>
 
         <div class="col-md-6 text-center">
           <div class="card">
-            <h3 class="section-heading">Support Circles</h3>
-            <p class="section-subheading text-muted">
+            <h3 class="section-heading">
+              <span data-i18n="support-heading">Support</span> 
+              <span class="hilight">Circles</span>
+            </h3>
+            <p data-i18n="support-subheading" class="section-subheading text-muted">
               We are always seeking sponsors to offer a city, space, or resources for testing an implmentation of our basic income prototype.
               Interested in supporting the project?
             </p>
             <h4 style="position: absolute;bottom: 0; width: 90%; padding-bottom: 10px">
-              <a href="#contact" class="page-scroll">Contact Us</a>
+              <a data-i18n="support-link" href="#contact" class="page-scroll">Contact Us</a>
             </h4>
           </div>
         </div>
@@ -240,10 +258,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading">Partners</h2>
-          <h3 class="section-subheading text-muted">Organizations participating in the development and implementation of Circles.
-            <br> Want to participate?
-            <a href="#contact" class="page-scroll">Contact us.</a>
+          <h2 data-i18n="partner-heading" class="section-heading">Partners</h2>
+          <h3 class="section-subheading text-muted">
+            <span data-i18n="partner-subheading">Organizations participating in the development and implementation of Circles</span>
+            <br> 
+            <span data-i18n="partner-participate">Want to participate?</span>
+            <a data-i18n="contact" href="#contact" class="page-scroll">Contact us.</a>
           </h3>
         </div>
       </div>
@@ -308,9 +328,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 class="section-heading">Contact Us</h2>
-          <h3 class="section-subheading text-muted">For any inquiries, e-mail
-            <a href="mailto:info@joincircles.net">info@joincircles.net</a> or come join our
+          <h2 data-i18n="contact" class="section-heading">Contact Us</h2>
+          <h3 class="section-subheading text-muted">
+            <span data-i18n="contact-text">For any inquiries, e-mail</span>
+            <a href="mailto:info@joincircles.net">info@joincircles.net</a> 
+            <span data-i18n="contact-chat">or come join our</span>
             <a href="http://chat.joincircles.net">chat</a>
           </h3>
         </div>
@@ -323,9 +345,6 @@
   <footer>
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
-          <span class="copyright">Copyright &copy; Berlin Basic Income Lab E.v. 2018</span>
-        </div>
         <div class="col-md-4 mx-auto">
           <ul class="list-inline social-buttons">
             <li class="list-inline-item">
@@ -335,15 +354,10 @@
             </li>
           </ul>
         </div>
-        <div class="col-md-4">
-          <ul class="list-inline quicklinks">
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
+      </div>
+      <div class="row">
+        <div class="col-md-4 mx-auto">
+          <span class="copyright">&copy; Berlin Basic Income Lab E.v. 2018</span>
         </div>
       </div>
     </div>
@@ -358,6 +372,19 @@
 
   <!-- Custom scripts for this template -->
   <script src="js/agency.min.js"></script>
+
+  <!-- Internationalisation scripts -->
+  <script src="js/CLDRPluralRuleParser.min.js"></script>
+  <script src="js/jquery.i18n.min.js"></script>
+  <script src="js/jquery.i18n.messagestore.min.js"></script>
+  <script src="js/jquery.i18n.fallbacks.min.js"></script>
+  <script src="js/jquery.i18n.language.min.js"></script>
+  <script src="js/jquery.i18n.parser.min.js"></script>
+  <script src="js/jquery.i18n.emitter.min.js"></script>
+  <script src="js/jquery.i18n.emitter.bidi.min.js"></script>
+
+  <!-- Site specific script -->
+  <script src="js/joincircles.min.js"></script>
 
 </body>
 
