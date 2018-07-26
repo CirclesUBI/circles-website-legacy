@@ -15,11 +15,11 @@ deploy:
   provider: s3
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: joincircles.net
+  bucket: www.joincircles.net
   skip_cleanup: true
   local_dir: build
   acl: public_read
-  endpoint: http://joincircles.net.s3-website.eu-central-1.amazonaws.com
+  endpoint: http://www.joincircles.net.s3-website.eu-central-1.amazonaws.com
   on:
     branch: master
   region: eu-central-1
