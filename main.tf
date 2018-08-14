@@ -9,39 +9,35 @@ resource "aws_s3_bucket" "joincircles.net" {
 }
 
 locals {
-  s3_origin_id = "myS3Origin"
+  s3_origin_id = "S3-www.joincircles.net" // located in the console at: CloudFront Distributions > E12VI3U7WIL23J
 }
 
 resource "aws_cloudfront_distribution" "s3_distribution" {
   origin {
-    domain_name = "${aws_s3_bucket.b.bucket_regional_domain_name}"
+    domain_name = "joincircles.net"
     origin_id   = "${local.s3_origin_id}"
-
-    s3_origin_config {
-      origin_access_identity = "origin-access-identity/cloudfront/ABCDEFG1234567"
-    }
   }
 
   enabled             = true
   is_ipv6_enabled     = true
-  comment             = "Some comment"
+  comment             = "Managed by Terraform"
   default_root_object = "index.html"
 
   logging_config {
     include_cookies = false
-    bucket          = "mylogs.s3.amazonaws.com"
-    prefix          = "myprefix"
+    bucket          = "mylogs.s3.amazonaws.com" # todo: we need a bucket for logs??????
+    prefix          = "joincircles.net"
   }
 
-  aliases = ["mysite.example.com", "yoursite.example.com"]
+  aliases = ["joincircles.net", "www.joincircles.net"]
 
   default_cache_behavior {
-    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"]
+    allowed_methods  = ["DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT"] # todo: pretty sure we dont need all these
     cached_methods   = ["GET", "HEAD"]
     target_origin_id = "${local.s3_origin_id}"
 
     forwarded_values {
-      query_string = false
+      query_string = false // todo: do we need query strings?
 
       cookies {
         forward = "none"
@@ -77,6 +73,7 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   # Cache behavior with precedence 1
+  // todo: probably don't need this
   ordered_cache_behavior {
     path_pattern     = "/content/*"
     allowed_methods  = ["GET", "HEAD", "OPTIONS"]
@@ -120,18 +117,10 @@ resource "aws_route53_zone" "joincircles.net" {
   name = "joincircles.net"
 }
 
-resource "aws_route53_record" "ethstats" {
+resource "aws_route53_record" "joincircles.net" {
   zone_id = "${aws_route53_zone.joincircles.net.zone_id}"
   name    = "joincircles.net"
   type    = "A"
   ttl     = "300"
-  records = ["${module.ethstats.public_ip}"]
-}
-
-resource "aws_route53_record" "bootnode" {
-  zone_id = "${aws_route53_zone.circles.zone_id}"
-  name    = "boot.${var.domain}"
-  type    = "A"
-  ttl     = "300"
-  records = ["${module.bootnode.public_ip}"]
+  records = ["dhlz1fm91p6pq.cloudfront.net"]
 }
