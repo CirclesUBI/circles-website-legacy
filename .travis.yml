@@ -5,25 +5,40 @@ node_js:
 install: npm install
 script:
   - npm test
-  - gulp
+  - gulp subdomains1
+  - gulp subdomains2
+  - gulp subdomains3
+  - gulp subdomains4
 cache:
   directories:
     - node_modules
 # Deploy using awscli to enable pruning of removed files
 before_deploy: pip install --user awscli
 deploy:
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: www.joincircles.net
-  skip_cleanup: true
-  local_dir: build
-  acl: public_read
-  endpoint: http://www.joincircles.net.s3-website.eu-central-1.amazonaws.com
-  on:
-    branch: master
-  region: eu-central-1
-  cache_control: "max-age=21600"
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: www.joincircles.net
+    skip_cleanup: true
+    local_dir: build
+    acl: public_read
+    endpoint: http://www.joincircles.net.s3-website.eu-central-1.amazonaws.com
+    on:
+      branch: master
+    region: eu-central-1
+    cache_control: "max-age=21600"
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: donate.joincircles.net
+    skip_cleanup: true
+    local_dir: build-donate
+    acl: public_read
+    endpoint: http://donate.joincircles.net.s3-website.eu-central-1.amazonaws.com
+    on:
+      branch: master
+    region: eu-central-1
+    cache_control: "max-age=21600"  
 after_deploy:
   # Allow `awscli` to make requests to CloudFront.
   - aws configure set preview.cloudfront true
