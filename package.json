@@ -34,11 +34,14 @@
     },
     "devDependencies": {
         "browser-sync": "2.24.3",
+        "event-stream": "^3.3.4",
         "gulp": "3.9.1",
         "gulp-clean-css": "3.9.4",
         "gulp-header": "2.0.5",
         "gulp-rename": "^1.2.2",
+        "gulp-replace": "^1.0.0",
         "gulp-sass": "4.0.1",
-        "gulp-uglify": "3.0.0"
+        "gulp-uglify": "3.0.0",
+        "run-sequence": "^2.2.1"
     }
 }
