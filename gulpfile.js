@@ -143,6 +143,7 @@ gulp.task('browserSync', function () {
 // todo: fix having to run gulp twice
 
 var subdomainList = []
+var subdomainRedirectList = []
 var subdomainCounter = 0
 
 function populateSubdomainList (es) {
@@ -152,6 +153,17 @@ function populateSubdomainList (es) {
     if (i === -1) return cb() // skip if not .html file
     let subdomain = filename.slice(0, -5)
     subdomainList.push({'filename': filename, 'url': 'https://' + subdomain + '.joincircles.net', 'folder': 'build-' + subdomain})
+    return cb(null, file)
+  })
+}
+
+function populateSubdomainRedirectList (es) {
+  return es.map(function (file, cb) {
+    let filename = file.path.replace(/^.*[\\/]/, '')
+    let i = filename.indexOf('.html')
+    if (i === -1) return cb() // skip if not .html file
+    let subdomain = filename.slice(0, -5)
+    subdomainRedirectList.push({'filename': filename, 'url': 'https://' + subdomain + '.joincircles.net', 'folder': 'build-' + subdomain})
     return cb(null, file)
   })
 }
@@ -168,8 +180,14 @@ function runSequentialTask (taskName, dataArray, count) {
 // hacky: pops the subdomainList array
 gulp.task('subdomains:list', function () {
   return gulp.src([
-    './subdomains//**/*'
+    './subdomains/full/*'
   ], {base: './'}).pipe(populateSubdomainList(es))
+})
+
+gulp.task('subdomains:redirectList', function () {
+  return gulp.src([
+    './subdomains/redirects/*'
+  ], {base: './'}).pipe(populateSubdomainRedirectList(es))
 })
 
 // this must be run first
@@ -194,12 +212,17 @@ gulp.task('subdomains4', function (callback) {
   runSequence('subdomains:list', 'subdomains:buildSubdomains', callback)
 })
 
+gulp.task('subdomains5', function (callback) {
+  runSequence('subdomains:redirectList', 'subdomains:buildSubdomainRedirects', callback)
+})
+
 gulp.task('subdomains:replaceUrls', () => runSequentialTask('subdomains:replaceSubUrls', subdomainList, 0))
 gulp.task('subdomains:replaceIndexUrls', () => runSequentialTask('subdomains:replaceSubIndexUrls', subdomainList, 0))
 gulp.task('subdomains:buildSubdomains', () => runSequentialTask('files:buildSubdomains', subdomainList, 0))
+gulp.task('subdomains:buildSubdomainRedirects', () => runSequentialTask('files:buildSubdomainRedirects', subdomainRedirectList, 0))
 
 gulp.task('subdomains:replaceSubUrls', function () {
-  return gulp.src(['index.html', './subdomains//**/*'])
+  return gulp.src(['index.html', './subdomains/full/*'])
     .pipe(replace(subdomainList[subdomainCounter].filename, subdomainList[subdomainCounter].url))
     .pipe(gulp.dest(function (file) {
       return file.base
@@ -207,7 +230,7 @@ gulp.task('subdomains:replaceSubUrls', function () {
 })
 
 gulp.task('subdomains:replaceSubIndexUrls', function () {
-  return gulp.src('./subdomains/' + subdomainList[subdomainCounter].filename)
+  return gulp.src('./subdomains/full/' + subdomainList[subdomainCounter].filename)
     .pipe(replace('index.html', 'https://www.joincircles.net'))
     .pipe(rename('index.html'))
     .pipe(gulp.dest(subdomainList[subdomainCounter].folder))
@@ -215,7 +238,7 @@ gulp.task('subdomains:replaceSubIndexUrls', function () {
 
 gulp.task('files:devSubdomains', function () {
   return gulp.src([
-    './subdomains//**/*'
+    './subdomains/full/*'
   ]).pipe(gulp.dest(mainBuildDir))
 })
 
@@ -223,6 +246,14 @@ gulp.task('files:buildSubdomains', function () {
   return gulp.src([
     './build//**/*', '!./build/index.html'
   ]).pipe(gulp.dest(subdomainList[subdomainCounter].folder))
+})
+
+gulp.task('files:buildSubdomainRedirects', function () {
+  return gulp.src([
+    './subdomains/redirects/' + subdomainRedirectList[subdomainCounter].filename
+  ])
+    .pipe(rename('index.html'))
+    .pipe(gulp.dest(subdomainRedirectList[subdomainCounter].folder))
 })
 
 // MAIN TASKS
