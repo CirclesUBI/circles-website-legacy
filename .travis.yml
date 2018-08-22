@@ -51,9 +51,27 @@ deploy:
     on:
       branch: master
     region: eu-central-1
-    cache_control: "max-age=21600" 
+    cache_control: "max-age=21600"
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: docs.joincircles.net
+    skip_cleanup: true
+    local_dir: build-docs
+    acl: public_read
+    endpoint: http://docs.joincircles.net.s3-website.eu-central-1.amazonaws.com
+    on:
+      branch: master
+    region: eu-central-1
+    cache_control: "max-age=21600"
 after_deploy:
-  # Allow `awscli` to make requests to CloudFront.
-  - aws configure set preview.cloudfront true
-  # Invalidate every object in the targeted distribution.
-  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+  - >
+    if ! [ "$BEFORE_DEPLOY_RUN" ]; then
+      console.log('running after deploy')
+      export BEFORE_DEPLOY_RUN=1;
+      # Allow `awscli` to make requests to CloudFront.
+      - aws configure set preview.cloudfront true
+      # Invalidate every object in the targeted distribution.
+      - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+    fi
+  
