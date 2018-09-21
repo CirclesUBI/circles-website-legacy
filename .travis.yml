@@ -6,15 +6,15 @@ install: npm install
 script:
   - npm test
   - gulp subdomains1
-  - ls  -d
+  - ls -d
   - gulp subdomains2
-  - ls  -d
+  - ls -d
   - gulp subdomains3
-  - ls  -d
+  - ls -d
   - gulp subdomains4
-  - ls  -d
+  - ls -d
   - gulp subdomains5
-  - ls  -d
+  - ls -d
 cache:
   directories:
     - node_modules
