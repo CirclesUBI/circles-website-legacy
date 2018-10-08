@@ -12,6 +12,7 @@ script:
   - gulp subdomains3  
   - gulp subdomains4  
   - gulp subdomains5  
+  - tree /build
 cache:
   directories:
     - node_modules
