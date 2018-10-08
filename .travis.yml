@@ -6,20 +6,16 @@ install: npm install
 script:
   - npm test
   - gulp subdomains1
-  - ls -d
-  - gulp subdomains2
-  - ls -d
-  - gulp subdomains3
-  - ls -d
-  - gulp subdomains4
-  - ls -d
-  - gulp subdomains5
-  - ls -d
+  - gulp subdomains2  
+  - gulp subdomains3  
+  - gulp subdomains4  
+  - gulp subdomains5  
+  - echo $(ls)
 cache:
   directories:
     - node_modules
 # Deploy using awscli to enable pruning of removed files
-before_deploy: pip install --user awscli
+before_deploy: pip install --user awscli && echo $(ls)
 deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY_ID
