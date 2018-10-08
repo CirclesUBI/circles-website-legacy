@@ -10,7 +10,7 @@ script:
   - gulp subdomains3  
   - gulp subdomains4  
   - gulp subdomains5  
-  - echo $(ls)
+  - echo $(ls img/team/dapphub.svg)
 cache:
   directories:
     - node_modules
