@@ -5,7 +5,11 @@ node_js:
 install: npm install
 script:
   - npm test
-  - gulp
+  - gulp subdomains1
+  - gulp subdomains2  
+  - gulp subdomains3  
+  - gulp subdomains4  
+  - gulp subdomains5  
 cache:
   directories:
     - node_modules
