@@ -1,8 +1,7 @@
+sudo: false
 language: node_js
 node_js:
   - "node"
-before_install:
-  - sudo apt-get install -y tree
 install: npm install
 script:
   - npm test
@@ -10,27 +9,32 @@ script:
   - gulp subdomains2  
   - gulp subdomains3  
   - gulp subdomains4  
-  - gulp subdomains5
+  - gulp subdomains5  
 cache:
   directories:
     - node_modules
 # Deploy using awscli to enable pruning of removed files
-# pip install --user awscli
+before_deploy: pip install --user awscli && 
 deploy:
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  bucket: joincircles.net
-  skip_cleanup: true
-  local_dir: build
-  acl: public_read
-  endpoint: http://joincircles.net.s3-website.eu-central-1.amazonaws.com
-  on:
-    branch: master
-  region: eu-central-1
-  cache_control: "max-age=21600"
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    bucket: donate.joincircles.net
+    skip_cleanup: true
+    local_dir: build-donate
+    acl: public_read
+    endpoint: http://donate.joincircles.net.s3-website.eu-central-1.amazonaws.com
+    on:
+      branch: master
+    region: eu-central-1
+    cache_control: "max-age=21600"
 after_deploy:
-  # Allow `awscli` to make requests to CloudFront.
-  - aws configure set preview.cloudfront true
-  # Invalidate every object in the targeted distribution.
-  - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+  - >
+    if ! [ "$BEFORE_DEPLOY_RUN" ]; then
+      export BEFORE_DEPLOY_RUN=1;
+      # Allow `awscli` to make requests to CloudFront.
+      aws configure set preview.cloudfront true
+      # Invalidate every object in the targeted distribution.
+      aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_DISTRIBUTION_ID --paths "/*"
+    fi
+  
