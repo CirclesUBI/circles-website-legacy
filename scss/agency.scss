@@ -2,6 +2,8 @@
 @import "mixins.scss";
 @import "fonts.scss";
 @import "navbar.scss";
+@import url('https://fonts.googleapis.com/css?family=Asap+Condensed:400,500,600,700|Capriola|Dosis:400,500,600,700,800');
+@import url('http://allfont.net/allfont.css?fonts=ostrich-sans-rounded-medium');
 
 // Global Components
 
@@ -9,10 +11,12 @@ body {
     overflow-x: hidden;
     @include body-font;
     height: 100%;
+    background-color: #FFF6F1;
 }
 
 .text-muted {
     color: $gray-light;
+    text-align: justify;
 }
 
 .text-primary {
@@ -47,7 +51,12 @@ a.active {
     color: darken($theme-primary, 10%);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
+    @include heading-font;
+    font-weight: 700;
+}
+
+h2, h3, h4, h5, h6 {
     @include heading-font;
     font-weight: 700;
 }
@@ -78,6 +87,19 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+.btn-header {
+    @include heading-font;
+    font-weight: 500;
+    border-radius: 5px!important;
+    background: transparent;
+    border: $theme-secondary 1px solid;
+    color: $theme-primary;
+    font-size: 18px;
+    padding: 10px 20px;
+
+    
+}
+
 .btn-xl {
     @include button-variant(white, $theme-primary, $theme-primary);
     @include heading-font;
@@ -85,98 +107,6 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 3px;
     font-size: 18px;
     padding: 10px 20px;
-}
-
-// Custom Navigation Bar
-
-.navbar-brand {
-    background-image: url(../img/logos/logo.png);
-    background-size: 65%;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    margin-left: 0px !important;
-    top: 0px;
-    width: 50px;
-    height: 50px;
-}
-
-.navbar-custom {
-    background-color: rgba(0,0,0,.8);
-    border-color: transparent;
-    .navbar-brand {
-        color: $theme-primary;
-        @include script-font;
-        &:hover,
-        &:focus,
-        &:active,
-        &.active {
-            color: darken($theme-primary, 10%);
-        }
-    }
-    .navbar-collapse {
-        border-color: fade-out(white, .02);
-    }
-    .navbar-toggle {
-        background-color: $theme-primary;
-        border-color: $theme-primary;
-        @include heading-font;
-        color: white;
-        font-size: 12px;
-        &:hover,
-        &:focus {
-            background-color: $theme-primary;
-        }
-    }
-    .nav {
-        li {
-            a {
-                @include heading-font;
-                font-weight: 400;
-                letter-spacing: 1px;
-                color: white;
-                text-transform: uppercase;
-                background-color: clear;
-                &:hover,
-                &:focus {
-                    color: $theme-primary;
-                    outline: none;
-                    background-color: white;
-                    border-radius: 3px;
-                }
-            }
-        }
-    }
-    .navbar-nav>.active>a {
-        border-radius: 0;
-        color: white;
-        background-color: $theme-primary;
-    }
-    .navbar-nav>.active>a:hover,
-    .navbar-nav>.active>a:focus {
-        color: white;
-        background-color: darken($theme-primary, 10%);
-    }
-}
-
-@media(min-width:768px) {
-    .navbar-custom {
-        background-color: rgba(0,0,0,.5);
-        padding: 10px 0;
-        -webkit-transition: padding 0.3s;
-        -moz-transition: padding 0.3s;
-        transition: padding 0.3s;
-        border: none;
-        .navbar-brand {
-            font-size: 2em;
-            -webkit-transition: all 0.3s;
-            -moz-transition: all 0.3s;
-            transition: all 0.3s;
-        }
-        .navbar-nav>.active>a {
-            border-radius: 3px;
-        }
-    }
 }
 
 // Navbar Change on Scroll
@@ -195,9 +125,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
-    background-image: url('../img/header-bg.svg');
-
-    background-color: white;
+    background-image: linear-gradient(#731254, black);
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
@@ -205,48 +133,34 @@ header {
     text-align: center;
     color: $theme-primary;
     .intro-text {
-        padding-top: 100px;
+        padding-top: 65px;
         padding-bottom: 50px;
-        text-shadow: 0px 2px 10px rgba(255,255,255,1);
         .intro-lead-in {
-            @include serif-font;
-            font-style: italic;
-            font-size: 3vw;
+            @include slogan-font;
+            font-size: 1.85rem;
             line-height: 0px;
-            margin-bottom: 25px;
+            margin-bottom: 35px;
+            // color: $theme-secondary;
+            color: rgb(247, 188, 100);
         }
         .intro-heading {
-            @include heading-font;
-            font-weight: 900;
-            font-size: 50px;
-            line-height: 50px;
-            margin-bottom: 10px;
-            margin-top: 25px;
+            height: 130px;
+            margin: 60px 0 40px;
+            background-image: url(../img/logos/circlestitle.png);
+            background-size: auto 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    @media(min-width: 786px) {
+        .intro-text {
+            .intro-lead-in {
+            }
         }
     }
 }
 
-@media(min-width:768px) {
-    header {
-        .intro-text {
-            padding-top: 150px;
-            padding-bottom: 100px;
-            .intro-lead-in {
-                @include serif-font;
-                font-style: italic;
-                font-size: 25px;
-                line-height: 30px;
-                margin-bottom: 25px;
-            }
-            .intro-heading {
-                @include heading-font;
-                font-size: 75px;
-                line-height: 75px;
-                margin-bottom: 20px;
-            }
-        }
-    }
-}
 
 // Global Section Styles
 
@@ -331,7 +245,7 @@ section {
                 margin: 0;
             }
             p {
-                @include serif-font;
+                @include body-font;
                 font-style: italic;
                 font-size: 16px;
                 margin: 0;
@@ -691,7 +605,7 @@ ul.social-buttons {
         }
         p.item-intro {
             margin: 20px 0 30px;
-            @include serif-font;
+            @include body-font;
             font-style: italic;
             font-size: 16px;
         }
