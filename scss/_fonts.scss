@@ -3,10 +3,6 @@
 @import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Varela+Round');
 // Font Mixins
 
-@mixin script-font {
-  font-family: "Exo", "Helvetica Neue", Helvetica, Arial, cursive;
-}
-
 @mixin body-font {
   font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -18,17 +14,17 @@
 }
 
 @mixin slogan-font {
-  font-family:  "Work Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
+  font-family:  "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
-@mixin logo-font {
-  font-family: "ostrich sans rounded medium", sans-serif;
-  font-weight: 100;
-  letter-spacing: 130px;
-  color:red;
-  text-transform: uppercase;
-}
+// @mixin logo-font {
+//   font-family: "ostrich sans rounded medium", sans-serif;
+//   font-weight: 100;
+//   letter-spacing: 130px;
+//   text-transform: uppercase;
+// }
 // // Custom fonts
 // @font-face {
 //     font-family: OstrichSans;
