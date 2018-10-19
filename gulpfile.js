@@ -112,7 +112,7 @@ gulp.task('files:main', function () {
     './mail//**/*',
     './lang//**/*',
     'index.html'
-  ], {base: './'}).pipe(gulp.dest(mainBuildDir))
+  ], { base: './' }).pipe(gulp.dest(mainBuildDir))
 })
 
 gulp.task('files:favicons', function () {
@@ -122,6 +122,7 @@ gulp.task('files:favicons', function () {
 
 // Move files to build
 gulp.task('devFiles', ['files:main', 'files:favicons', 'files:devSubdomains'])
+gulp.task('files', ['files:main', 'files:favicons'])
 gulp.task('subdomainFiles', ['files:main', 'files:favicons'])
 
 // JS
@@ -152,7 +153,7 @@ function populateSubdomainList (es) {
     let i = filename.indexOf('.html')
     if (i === -1) return cb() // skip if not .html file
     let subdomain = filename.slice(0, -5)
-    subdomainList.push({'filename': filename, 'url': 'https://' + subdomain + '.joincircles.net', 'folder': 'build-' + subdomain})
+    subdomainList.push({ 'filename': filename, 'url': 'https://' + subdomain + '.joincircles.net', 'folder': 'build-' + subdomain })
     return cb(null, file)
   })
 }
@@ -163,7 +164,7 @@ function populateSubdomainRedirectList (es) {
     let i = filename.indexOf('.html')
     if (i === -1) return cb() // skip if not .html file
     let subdomain = filename.slice(0, -5)
-    subdomainRedirectList.push({'filename': filename, 'url': 'https://' + subdomain + '.joincircles.net', 'folder': 'build-' + subdomain})
+    subdomainRedirectList.push({ 'filename': filename, 'url': 'https://' + subdomain + '.joincircles.net', 'folder': 'build-' + subdomain })
     return cb(null, file)
   })
 }
@@ -181,13 +182,13 @@ function runSequentialTask (taskName, dataArray, count) {
 gulp.task('subdomains:list', function () {
   return gulp.src([
     './subdomains/full/*'
-  ], {base: './'}).pipe(populateSubdomainList(es))
+  ], { base: './' }).pipe(populateSubdomainList(es))
 })
 
 gulp.task('subdomains:redirectList', function () {
   return gulp.src([
     './subdomains/redirects/*'
-  ], {base: './'}).pipe(populateSubdomainRedirectList(es))
+  ], { base: './' }).pipe(populateSubdomainRedirectList(es))
 })
 
 // this must be run first

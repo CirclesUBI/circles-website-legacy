@@ -36,14 +36,7 @@
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom fonts for this template -->
-  <!-- <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Asap+Condensed:400,500,600,700|Capriola|Dosis:400,500,600,700,800" rel="stylesheet">
-  <link href="http://allfont.net/allfont.css?fonts=ostrich-sans-rounded-medium" rel="stylesheet" type="text/css" />
-  <link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c:300,400,500,700,800" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'> -->
+<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"> 
 
   <!-- Custom styles for this template -->
   <link href="css/agency.min.css" rel="stylesheet">
@@ -128,6 +121,7 @@
     <div class="container">
       <div class="intro-text">
         <div class="intro-heading-box">
+          <img src="img/logos/circleslogo.png" class="mobile-header-logo">
           <div class="intro-heading"></div>
           <div data-i18n="intro-subheading" class="intro-lead-in">A Basic Income on the Blockchain</div>
           <a data-i18n="whitepaper-link" href="https://github.com/CirclesUBI/docs/blob/master/Circles.md" target="_blank" class="btn-header page-scroll btn">
@@ -217,7 +211,7 @@
   </section>
 
   <!-- Participate Section -->
-  <section id="participate" class="bg-light-gray">
+  <section id="participate">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -227,20 +221,20 @@
       <br>
 
       <div class="row">
-        <div class="col-md-6 text-center">
+        <div class="col-md-6 text-center card-col">
           <div class="card">
             <h3 data-i18n="chat-heading" class="section-heading">Chat with Us</h3>
             <p data-i18n="chat-subheading" class="section-subheading text-muted">
-              Circles is an open source community, and we are always looking for passionate contributors. If you are interested in participating
-              or want to follow our progress, please join our chat room.
+              Circles is an open source community - we are always looking for passionate contributors. If you are interested in participating
+              or to follow our progress, please join our chat room.
             </p>
-            <h4 style="position: absolute;bottom: 0; width: 90%; padding-bottom: 10px">
+            <h4>
               <a data-i18n="chat-link" href="https://chat.joincircles.net/home ">Join our Chat</a>
             </h4>
           </div>
         </div>
 
-        <div class="col-md-6 text-center">
+        <div class="col-md-6 text-center card-col">
           <div class="card">
             <h3 class="section-heading">
               <span data-i18n="support-heading">Support</span> 
@@ -250,7 +244,7 @@
               We are always seeking sponsors to offer a city, space, or resources for testing an implmentation of our basic income prototype.
               Interested in supporting the project?
             </p>
-            <h4 style="position: absolute;bottom: 0; width: 90%; padding-bottom: 10px">
+            <h4>
               <a data-i18n="support-link" href="#contact" class="page-scroll">Contact Us</a>
             </h4>
           </div>
@@ -264,10 +258,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
-          <h2 data-i18n="partner-heading" class="section-heading">Partners</h2>
+          <h2 data-i18n="partner-heading" class="section-heading">Our Partners</h2>
           <h3 class="section-subheading text-muted">
             <span data-i18n="partner-subheading">Organisations participating in the development and implementation of Circles</span>
-            <br> 
             <span data-i18n="partner-participate">Want to participate?</span>
             <a data-i18n="contact" href="#contact" class="page-scroll">Contact us.</a>
           </h3>
@@ -279,8 +272,6 @@
             <a href="https://consensys.net/" target="_blank">
               <img src="img/logos/consensys.png" class="mx-auto rounded-circle" alt="">
               <h4>ConsenSys</h4>
-
-              <p class="text-muted">consensys.net</p>
             </a>
           </div>
         </div>
@@ -289,7 +280,6 @@
             <a href="http://dapphub.com/" target="_blank">
               <img src="img/team/dapphub.svg" class="mx-auto rounded-circle" alt="">
               <h4>DappHub</h4>
-              <p class="text-muted">dapphub.com</p>
             </a>
           </div>
         </div>
@@ -298,7 +288,6 @@
             <a href="https://www.meetup.com/Berlin-Basic-Income-Bedingungsloses-Grundeinkommen/" target="_blank">
               <img src="img/team/bbil.png" class="mx-auto rounded-circle" alt="">
               <h4>Berlin Basic Income Lab</h4>
-              <p class="text-muted">meetup.com/Berlin-Basic-Income</p>
             </a>
           </div>
         </div>
@@ -310,7 +299,6 @@
             <a href="https://therules.org/" target="_blank">
               <img src="img/team/rules.png" class="mx-auto rounded-circle" alt="">
               <h4>The Rules</h4>
-              <p class="text-muted">therules.org</p>
             </a>
           </div>
         </div>
@@ -320,14 +308,16 @@
             <a href="http://www.cafe-grundeinkommen.org/" target="_blank">
               <img src="img/team/cafe.png" class="mx-auto rounded-circle" alt="">
               <h4>Café Grundeinkommen</h4>
-              <p class="text-muted">cafe-grundeinkommen.org</p>
             </a>
           </div>
         </div>
       </div>
     </div>
+    <div class="illustration">
+      <div class="container">
+      </div>
+    </div>
   </section>
-
 
   <!-- Contact Section -->
   <section id="contact">
@@ -346,7 +336,6 @@
     </div>
   </section>
 
-
   <!-- Footer -->
   <footer>
     <div class="container">
@@ -356,6 +345,16 @@
             <li class="list-inline-item">
               <a href="http://www.twitter.com/CirclesUBI">
                 <i class="fa fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://chat.joincircles.net/">
+                <i class="fa fa-commenting"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#contact">
+                <i class="fa fa-envelope"></i>
               </a>
             </li>
           </ul>

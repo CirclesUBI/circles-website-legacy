@@ -7,11 +7,32 @@
 
 // Global Components
 
+
+#partners {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+#participate {
+    background: rgb(253, 211, 121);
+}
+
+#contact {
+    color: $theme-secondary;
+}
+
+.dropdown-toggle {
+    color: $theme-secondary!important;
+    vertical-align: center;
+}
+.fa-circle {
+    color: $theme-primary!important;
+}
+
 body {
     overflow-x: hidden;
     @include body-font;
     height: 100%;
-    background-color: #FFF6F1;
+    background-color: #fdf8ef;
 }
 
 .text-muted {
@@ -32,23 +53,17 @@ p.large {
     font-size: 16px;
 }
 
-a,
-a:hover,
-a:focus,
-a:active,
-a.active {
-    outline: none;
-}
-
 a {
-    color: $theme-primary;
+    outline: none;
+    color: $theme-clickable; 
 }
 
 a:hover,
 a:focus,
 a:active,
 a.active {
-    color: darken($theme-primary, 10%);
+    color: $theme-clickable;
+    outline: none;
 }
 
 h1 {
@@ -93,11 +108,17 @@ h2, h3, h4, h5, h6 {
     border-radius: 5px!important;
     background: transparent;
     border: $theme-secondary 1px solid;
-    color: $theme-primary;
+    color: $theme-secondary;
     font-size: 18px;
     padding: 10px 20px;
+    font-weight: 500;    
+}
 
-    
+.btn-header:hover {
+    background: $theme-clickable;
+    color: $theme-secondary;
+    border: $theme-clickable 1px solid;
+    padding: 10px 20px;
 }
 
 .btn-xl {
@@ -132,22 +153,27 @@ header {
     @include background-cover;
     text-align: center;
     color: $theme-primary;
+    .mobile-header-logo {
+        width: 40vw;
+        margin-top: 20px;
+        @media(min-width: 786px) {
+           display: none;
+        }
+    }
     .intro-text {
-        padding-top: 65px;
-        padding-bottom: 50px;
+        padding: 65px 20px 75px 20px;
         .intro-lead-in {
             @include slogan-font;
             font-size: 1.85rem;
-            line-height: 0px;
-            margin-bottom: 35px;
-            // color: $theme-secondary;
+            line-height: 1.85rem;
+            margin-bottom: 25px;
             color: rgb(247, 188, 100);
         }
         .intro-heading {
             height: 130px;
-            margin: 60px 0 40px;
+            margin: 10px 0 10px;
             background-image: url(../img/logos/circlestitle.png);
-            background-size: auto 100%;
+            background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
         }
@@ -155,7 +181,9 @@ header {
 
     @media(min-width: 786px) {
         .intro-text {
-            .intro-lead-in {
+
+            .intro-heading {
+                margin: 60px 0 40px;
             }
         }
     }
@@ -170,12 +198,14 @@ section {
         font-size: 40px;
         margin-top: 0;
         margin-bottom: 15px;
+        letter-spacing: 3px;
     }
     h3.section-subheading {
         font-size: 20px;
         text-transform: none;
         font-weight: 400;
         margin-bottom: 75px;
+        text-align: center!important;
     }
 }
 
@@ -454,9 +484,13 @@ section {
     text-align: center;
     margin-bottom: 50px;
 
+
+
     img {
         margin: 0 auto;
-        border: 7px solid $gray-lighter;
+        background: white;
+        border: none;
+        outline: none;
     }
     h4 {
         margin-top: 25px;
@@ -476,13 +510,35 @@ aside.clients {
     }
 }
 
+// Illustration
+
+.illustration {
+    padding: 20px;
+    height: 700px;
+    background-image: linear-gradient(#731254, black);
+    background-color: none;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .container {
+        height: 100%;
+        background-image: url(/img/thecirclespeople.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        vertical-align: center;
+        background-size: contain;
+    }
+}
+
 // Contact Section
 
 section#contact {
-    background-color: $gray-darker;
+    background-color: black;
     background-image: url('../img/map-image.png');
     background-position: center;
     background-repeat: no-repeat;
+    padding: 0 0 30px 0;
     .section-heading {
         color: white;
     }
@@ -683,12 +739,20 @@ body {
 }
 
 .hilight{
-    color: $theme-primary;
+    color: $nav-bar;
+
 }
 
-.card{
-    background-color: white;
-    padding: 10px;
-    margin: 5px;
-    height: 100%;
+.card-col {
+    margin-bottom: 30px;
+    
+    .card{
+        background-color: white;
+        padding: 30px;
+        margin: 5px;
+        height: 100%;
+        display: inline-block;
+        border: none;
+        border-radius: 10px;
+    }
 }
