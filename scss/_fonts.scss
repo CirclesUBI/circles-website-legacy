@@ -1,23 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700');
+@import url('http://allfont.net/allfont.css?fonts=ostrich-sans-rounded-medium');
+@import url('https://fonts.googleapis.com/css?family=Didact+Gothic|Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i|Varela+Round');
 // Font Mixins
-@mixin serif-font {
-  font-family: "Droid Serif", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-
-@mixin script-font {
-  font-family: "Exo", "Helvetica Neue", Helvetica, Arial, cursive;
-}
 
 @mixin body-font {
-  font-family: "Roboto Slab", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 @mixin heading-font {
-  font-family: Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
- // text-transform: uppercase;
+  font-family:  "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
 }
 
-//Custom fonts
-@font-face {
-    font-family: Avenir;
-    src: url('../fonts/Avenir.ttc');
+@mixin slogan-font {
+  font-family:  "Nunito", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
+
+// @mixin logo-font {
+//   font-family: "ostrich sans rounded medium", sans-serif;
+//   font-weight: 100;
+//   letter-spacing: 130px;
+//   text-transform: uppercase;
+// }
+// // Custom fonts
+// @font-face {
+//     font-family: OstrichSans;
+//     src: url('../fonts/ostrich.ttf') format('truetype');
+// }

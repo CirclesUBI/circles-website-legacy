@@ -2,17 +2,42 @@
 @import "mixins.scss";
 @import "fonts.scss";
 @import "navbar.scss";
+@import url('https://fonts.googleapis.com/css?family=Asap+Condensed:400,500,600,700|Capriola|Dosis:400,500,600,700,800');
+@import url('http://allfont.net/allfont.css?fonts=ostrich-sans-rounded-medium');
 
 // Global Components
+
+
+#partners {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+#participate {
+    background: rgb(253, 211, 121);
+}
+
+#contact {
+    color: $theme-secondary;
+}
+
+.dropdown-toggle {
+    color: $theme-secondary!important;
+    vertical-align: center;
+}
+.fa-circle {
+    color: $theme-primary!important;
+}
 
 body {
     overflow-x: hidden;
     @include body-font;
     height: 100%;
+    background-color: #fdf8ef;
 }
 
 .text-muted {
     color: $gray-light;
+    text-align: justify;
 }
 
 .text-primary {
@@ -28,26 +53,25 @@ p.large {
     font-size: 16px;
 }
 
-a,
+a {
+    outline: none;
+    color: $theme-clickable; 
+}
+
 a:hover,
 a:focus,
 a:active,
 a.active {
+    color: $theme-clickable;
     outline: none;
 }
 
-a {
-    color: $theme-primary;
+h1 {
+    @include heading-font;
+    font-weight: 700;
 }
 
-a:hover,
-a:focus,
-a:active,
-a.active {
-    color: darken($theme-primary, 10%);
-}
-
-h1, h2, h3, h4, h5, h6 {
+h2, h3, h4, h5, h6 {
     @include heading-font;
     font-weight: 700;
 }
@@ -78,6 +102,25 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
+.btn-header {
+    @include heading-font;
+    font-weight: 500;
+    border-radius: 5px!important;
+    background: transparent;
+    border: $theme-secondary 1px solid;
+    color: $theme-secondary;
+    font-size: 18px;
+    padding: 10px 20px;
+    font-weight: 500;    
+}
+
+.btn-header:hover {
+    background: $theme-clickable;
+    color: $theme-secondary;
+    border: $theme-clickable 1px solid;
+    padding: 10px 20px;
+}
+
 .btn-xl {
     @include button-variant(white, $theme-primary, $theme-primary);
     @include heading-font;
@@ -85,98 +128,6 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 3px;
     font-size: 18px;
     padding: 10px 20px;
-}
-
-// Custom Navigation Bar
-
-.navbar-brand {
-    background-image: url(../img/logos/logo.png);
-    background-size: 65%;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    margin-left: 0px !important;
-    top: 0px;
-    width: 50px;
-    height: 50px;
-}
-
-.navbar-custom {
-    background-color: rgba(0,0,0,.8);
-    border-color: transparent;
-    .navbar-brand {
-        color: $theme-primary;
-        @include script-font;
-        &:hover,
-        &:focus,
-        &:active,
-        &.active {
-            color: darken($theme-primary, 10%);
-        }
-    }
-    .navbar-collapse {
-        border-color: fade-out(white, .02);
-    }
-    .navbar-toggle {
-        background-color: $theme-primary;
-        border-color: $theme-primary;
-        @include heading-font;
-        color: white;
-        font-size: 12px;
-        &:hover,
-        &:focus {
-            background-color: $theme-primary;
-        }
-    }
-    .nav {
-        li {
-            a {
-                @include heading-font;
-                font-weight: 400;
-                letter-spacing: 1px;
-                color: white;
-                text-transform: uppercase;
-                background-color: clear;
-                &:hover,
-                &:focus {
-                    color: $theme-primary;
-                    outline: none;
-                    background-color: white;
-                    border-radius: 3px;
-                }
-            }
-        }
-    }
-    .navbar-nav>.active>a {
-        border-radius: 0;
-        color: white;
-        background-color: $theme-primary;
-    }
-    .navbar-nav>.active>a:hover,
-    .navbar-nav>.active>a:focus {
-        color: white;
-        background-color: darken($theme-primary, 10%);
-    }
-}
-
-@media(min-width:768px) {
-    .navbar-custom {
-        background-color: rgba(0,0,0,.5);
-        padding: 10px 0;
-        -webkit-transition: padding 0.3s;
-        -moz-transition: padding 0.3s;
-        transition: padding 0.3s;
-        border: none;
-        .navbar-brand {
-            font-size: 2em;
-            -webkit-transition: all 0.3s;
-            -moz-transition: all 0.3s;
-            transition: all 0.3s;
-        }
-        .navbar-nav>.active>a {
-            border-radius: 3px;
-        }
-    }
 }
 
 // Navbar Change on Scroll
@@ -195,58 +146,49 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
-    background-image: url('../img/header-bg.svg');
-
-    background-color: white;
+    background-image: linear-gradient(#731254, black);
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
     @include background-cover;
     text-align: center;
     color: $theme-primary;
+    .mobile-header-logo {
+        width: 40vw;
+        margin-top: 20px;
+        @media(min-width: 786px) {
+           display: none;
+        }
+    }
     .intro-text {
-        padding-top: 100px;
-        padding-bottom: 50px;
-        text-shadow: 0px 2px 10px rgba(255,255,255,1);
+        padding: 65px 20px 75px 20px;
         .intro-lead-in {
-            @include serif-font;
-            font-style: italic;
-            font-size: 3vw;
-            line-height: 0px;
+            @include slogan-font;
+            font-size: 1.9rem;
+            line-height: 2rem;
             margin-bottom: 25px;
+            color: rgb(247, 188, 100);
         }
         .intro-heading {
-            @include heading-font;
-            font-weight: 900;
-            font-size: 50px;
-            line-height: 50px;
-            margin-bottom: 10px;
-            margin-top: 25px;
+            height: 130px;
+            margin: 10px 0 10px;
+            background-image: url(../img/logos/circlestitle.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    @media(min-width: 786px) {
+        .intro-text {
+
+            .intro-heading {
+                margin: 60px 0 40px;
+            }
         }
     }
 }
 
-@media(min-width:768px) {
-    header {
-        .intro-text {
-            padding-top: 150px;
-            padding-bottom: 100px;
-            .intro-lead-in {
-                @include serif-font;
-                font-style: italic;
-                font-size: 25px;
-                line-height: 30px;
-                margin-bottom: 25px;
-            }
-            .intro-heading {
-                @include heading-font;
-                font-size: 75px;
-                line-height: 75px;
-                margin-bottom: 20px;
-            }
-        }
-    }
-}
 
 // Global Section Styles
 
@@ -256,12 +198,14 @@ section {
         font-size: 40px;
         margin-top: 0;
         margin-bottom: 15px;
+        letter-spacing: 3px;
     }
     h3.section-subheading {
         font-size: 20px;
         text-transform: none;
         font-weight: 400;
         margin-bottom: 75px;
+        text-align: center!important;
     }
 }
 
@@ -331,7 +275,7 @@ section {
                 margin: 0;
             }
             p {
-                @include serif-font;
+                @include body-font;
                 font-style: italic;
                 font-size: 16px;
                 margin: 0;
@@ -540,9 +484,13 @@ section {
     text-align: center;
     margin-bottom: 50px;
 
+
+
     img {
         margin: 0 auto;
-        border: 7px solid $gray-lighter;
+        background: white;
+        border: none;
+        outline: none;
     }
     h4 {
         margin-top: 25px;
@@ -562,13 +510,35 @@ aside.clients {
     }
 }
 
+// Illustration
+
+.illustration {
+    padding: 20px;
+    height: 700px;
+    background-image: linear-gradient(#731254, black);
+    background-color: none;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    .container {
+        height: 100%;
+        background-image: url(/img/thecirclespeople.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        vertical-align: center;
+        background-size: contain;
+    }
+}
+
 // Contact Section
 
 section#contact {
-    background-color: $gray-darker;
+    background-color: black;
     background-image: url('../img/map-image.png');
     background-position: center;
     background-repeat: no-repeat;
+    padding: 0 0 30px 0;
     .section-heading {
         color: white;
     }
@@ -691,7 +661,7 @@ ul.social-buttons {
         }
         p.item-intro {
             margin: 20px 0 30px;
-            @include serif-font;
+            @include body-font;
             font-style: italic;
             font-size: 16px;
         }
@@ -769,12 +739,20 @@ body {
 }
 
 .hilight{
-    color: $theme-primary;
+    color: $nav-bar;
+
 }
 
-.card{
-    background-color: white;
-    padding: 10px;
-    margin: 5px;
-    height: 100%;
+.card-col {
+    margin-bottom: 30px;
+    
+    .card{
+        background-color: white;
+        padding: 30px;
+        margin: 5px;
+        height: 100%;
+        display: inline-block;
+        border: none;
+        border-radius: 10px;
+    }
 }

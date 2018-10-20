@@ -1,26 +1,26 @@
 // Styling for the navbar
 #mainNav {
-  background-color: $gray-900;
+  background-color: $nav-bar;
   .navbar-toggler {
     font-size: 12px;
     right: 0;
     padding: 13px;
     text-transform: uppercase;
-    color: white;
+    color: rgb(245, 231, 209);
     border: 0;
     background-color: $primary;
     @include heading-font;
   }
-  .navbar-brand {
-    color: $primary;
-    @include script-font;
-    &.active,
-    &:active,
-    &:focus,
-    &:hover {
-      color: darken($primary, 10%);
-    }
-  }
+  // .navbar-brand {
+  //   color: $primary;
+  //   @include script-font;
+  //   &.active,
+  //   &:active,
+  //   &:focus,
+  //   &:hover {
+  //     color: darken($primary, 10%);
+  //   }
+  // }
   .navbar-nav {
     .nav-item {
       .nav-link {
@@ -28,8 +28,8 @@
         font-weight: 400;
         padding: 0.75em 0;
         letter-spacing: 1px;
-        color: white;
-        @include heading-font;
+        color: $theme-secondary;
+        @include body-font;
         &.active,
         &:hover {
           color: $primary;
@@ -52,9 +52,11 @@
     -moz-transition: padding-top 0.3s, padding-bottom 0.3s;
     transition: padding-top 0.3s, padding-bottom 0.3s;
     border: none;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, 0);
     .navbar-brand {
-      background-image: url(../img/logos/logo.png);
+      background-image: url(../img/logos/circleslogo.png);
+      background-size: contain;
+      background-repeat: no-repeat;
       font-size: 2em;
       width: 70px;
       height: 70px;
@@ -73,7 +75,7 @@
     &.navbar-shrink {
       padding-top: 0;
       padding-bottom: 0;
-      background-color: $gray-900;
+      background-color: #340E28;
       .navbar-brand {
         width: 50px;
         height: 50px;
