@@ -31,18 +31,6 @@ deploy:
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: donate.joincircles.net
-    skip_cleanup: true
-    local_dir: build-donate
-    acl: public_read
-    endpoint: http://donate.joincircles.net.s3-website.eu-central-1.amazonaws.com
-    on:
-      branch: master
-    region: eu-central-1
-    cache_control: "max-age=21600"
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
     bucket: wiki.joincircles.net
     skip_cleanup: true
     local_dir: build-wiki
