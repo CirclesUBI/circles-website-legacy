@@ -23,15 +23,24 @@
   // }
   .navbar-nav {
     .dropdown {
-        .dropdown-toggle {
+      .drowpdown-menu {
+        margin-top: 0;
+      }
+      .dropdown-toggle {
+        color: $theme-secondary!important;
+        vertical-align: center;
+  
+        a {
           color: $theme-secondary!important;
-          vertical-align: center;
-      
-          &:hover {
-              color:$theme-clickable!important;
-          }
         }
+    
+        &:hover {
+            color:$theme-clickable!important;
+        }
+  
+  }
     }
+
     .nav-item {
       .nav-link {
         font-size: 90%;
