@@ -1,13 +1,13 @@
-jQuery(document).ready(function() {
-  var update_texts = function() {
-    $('body').i18n();
-  };
+jQuery(document).ready(function () {
+  var update_texts = function () {
+    $('body').i18n()
+  }
 
-  $('.lang-switch').click(function(e) {
-    e.preventDefault();
-    $.i18n().locale = $(this).data('locale');
-    update_texts();
-  });
+  $('.lang-switch').click(function (e) {
+    e.preventDefault()
+    $.i18n().locale = $(this).data('locale')
+    update_texts()
+  })
 
   $.i18n().load({
     'en': {
@@ -23,18 +23,18 @@ jQuery(document).ready(function() {
       'donate-overview-heading': 'How do I donate to',
       'overview-subheading': 'Circles is an electronic cryptocurrency with the aim to create and distribute a globally accessible Universal Basic Income.',
       'donate-overview-subheading': 'Listed below are the available donation methods. Please <a href="mailto:donate@joincircles.net?"></a> if you have one you would like to suggest.',
-      'credit-heading': 'Credit-Based',      
+      'credit-heading': 'Credit-Based',
       'credit-subheading': 'In traditional debt-based currencies one sells goods, borrows money, or invests working power to receive money. With Circles, one receives money unconditionally to engage with their community, creating value through offering goods or services.',
       'decentral-heading': 'Decentralized',
       'decentral-subheading': 'A worldwide basic income is something so powerful that no single entity should have control over the money or its recipients. Using blockchain technology, Circles will be independent of any central issuing authority or institution.',
       'resilient-heading': 'Resilient',
-      'resilient-subheading': 'Circles will run on the blockchain, a secure, decentralised, and autonomously managed database. Since the system\'s money emerges from a network of peer-to-peer relationships, it is possible to maintain stability on a local level, regardless of how things go at the national or global scale.',
+      'resilient-subheading': 'Circles runs on the blockchain, a secure, decentralised, autonomously managed database. Since the system\'s money emerges from a network of peer-to-peer relationships, it maintains stability on a local level, regardless of the national or global scale.',
       'cooperation-heading': 'Fostering Cooperation',
       'cooperation-subheading': 'Circles promotes cooperation and economic interaction by creating local trade networks. The more connected community members are to each other, the more valuable their network becomes.',
       'hoarding-heading': 'Hoarding Resistant',
       'hoarding-subheading': 'Circles has an inbuilt inflation target of 5% per annum to discourage hoarding. This also increases the velocity of money in circulation, creating more opportunities for exchange and economic activity.',
       'seigniorage-heading': 'Seigniorage',
-      'seigniorage-subheading': 'Seigniorage refers to the profit made from the difference between the production costs and the value of money. As Circles is a credit-based currency that costs almost nothing to create, you will retain almost all of this value as first spender.',
+      'seigniorage-subheading': 'Seigniorage is the profit made from the difference between the production costs and the value of money. As Circles is a credit-based currency that costs little to create, you retain most of this value as first spender.',
       'participate-heading': 'How can I participate?',
       'chat-heading': 'Chat with Us',
       'chat-subheading': 'Circles is an open source community, and we are always looking for passionate contributors. If you are interested in participating or want to follow our progress, please join our chat room.',
@@ -91,7 +91,7 @@ jQuery(document).ready(function() {
       'contact-text': 'Nachricht an uns',
       'contact-chat': 'oder zum'
     }
-  });
+  })
 
-  update_texts();
-});
+  update_texts()
+})

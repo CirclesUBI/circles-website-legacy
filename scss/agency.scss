@@ -20,10 +20,6 @@
     color: $theme-secondary;
 }
 
-.fa-circle {
-    color: $theme-primary!important;
-}
-
 body {
     overflow-x: hidden;
     @include body-font;
@@ -98,6 +94,24 @@ h2, h3, h4, h5, h6 {
 
 }
 
+.btn-mid {
+    @include heading-font;
+    font-weight: 500;
+    border-radius: 5px!important;
+    background: $theme-clickable;
+    border: none;
+    color: $theme-secondary;
+    font-size: 18px;
+    padding: 10px 20px;
+    font-weight: 500;    
+    text-align: center;
+    border: none;
+
+    &:hover {
+        color: $theme-secondary;
+    }
+}
+
 .btn-header {
     @include heading-font;
     font-weight: 500;
@@ -149,6 +163,16 @@ header {
     @include background-cover;
     text-align: center;
     color: $theme-primary;
+    height: 90vh;
+
+    .header-container {
+        height: 80vh;
+    }
+
+    .fa-angle-down {
+        color: $theme-secondary;
+        font-size: 5rem;
+    }
     .mobile-header-logo {
         width: 40vw;
         margin-top: 20px;
@@ -157,7 +181,7 @@ header {
         }
     }
     .intro-text {
-        padding: 65px 20px 75px 20px;
+        padding: 70px 20px 75px 20px;
         .intro-lead-in {
             @include slogan-font;
             font-size: 1.9rem;
@@ -177,7 +201,10 @@ header {
 
     @media(min-width: 786px) {
         .intro-text {
-
+            padding-top: 20vh;
+            .intro-lead-in {
+                margin: 4vh;
+            }
             .intro-heading {
                 margin: 60px 0 40px;
             }
@@ -216,6 +243,59 @@ section {
 .service-heading {
     margin: 15px 0;
     text-transform: none;
+}
+
+// Overview section
+
+#overview {
+    padding: 10vh 2vh 10vh;
+    min-height: 100vh;
+
+    .fa-circle {
+        color: $theme-primary!important;
+    }
+
+    h3.section-subheading {
+        margin-bottom: 40px;
+    }
+
+    p {
+        font-size: 1.1em;
+        margin-bottom: 5vh!important;
+    }
+
+    @media(min-width:768px) {
+       p {
+           font-size: 1rem
+       }
+    }
+}
+
+// Participate section
+
+#participate {
+    min-height: 70vh;
+    padding-top: 10vh;
+
+    p {
+        font-size: 1.1rem;
+        margin-bottom: 3vh;
+    }
+
+    @media(min-width:768px) {
+       p {
+           font-size: 1rem
+       }
+    }
+
+    h3 {
+        margin-bottom: 2vh;
+    }
+    .section-heading {
+        h2 {
+            margin-bottom: 10vh;
+        }
+    }
 }
 
 // Portfolio Section
@@ -480,8 +560,6 @@ section {
     text-align: center;
     margin-bottom: 50px;
 
-
-
     img {
         margin: 0 auto;
         background: white;
@@ -555,6 +633,15 @@ section#contact {
         border-color: $theme-primary;
         box-shadow: none;
     }
+
+        
+    a {
+        color: $theme-primary;
+        &:hover {
+            color: $theme-clickable;
+        }
+    }
+
 
     //form placeholder text
     .place-holder-text{
