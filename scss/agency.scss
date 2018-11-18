@@ -126,13 +126,16 @@ h2, h3, h4, h5, h6 {
     font-size: 18px;
     padding: 10px 20px;
     font-weight: 500;    
+
+    @media(max-height: 568px) {
+        font-size: 1rem;
+    }
 }
 
 .btn-header:hover {
     background: $theme-clickable;
     color: $theme-secondary;
     border: $theme-clickable 1px solid;
-    padding: 10px 20px;
 }
 
 .btn-xl {
@@ -171,30 +174,64 @@ header {
 
     .header-container {
         height: 80vh;
+        @media(max-height: 568px) {
+            height: 70vh;
+        }
     }
 
-    .fa-angle-down {
-        color: $theme-secondary;
-        font-size: 5rem;
+    .js-scroll-trigger {
+        @media(max-height: 568px) {
+            font-size: 4rem;
+            padding: 0;
+            margin: 0;
+        }
+
+        .fa-angle-down {
+            color: $theme-secondary;
+            font-size: 5rem;
+        }
     }
-    .mobile-header-logo {
+        .mobile-header-logo {
         width: 40vw;
         margin-top: 20px;
+
+        @media(max-height: 568px) {
+            width: 35vw;
+            margin-top: 0px;
+        }
+
+        @media(max-height: 480px) {
+            width: 30vw;
+        }
+
         @media(min-width: 786px) {
            display: none;
         }
     }
     .intro-text {
         padding: 70px 20px 75px 20px;
+        
         .intro-lead-in {
             @include slogan-font;
             font-size: 1.9rem;
             line-height: 2rem;
             margin-bottom: 25px;
             color: rgb(247, 188, 100);
+
+            @media(max-height: 568px) {
+                font-size: 1.25rem;
+                line-height: 1.35rem;
+                margin-bottom: 10px;
+            }
+
+            @media(max-height: 480px) {
+                font-size: 1.15rem;
+                line-height: 1.2rem;
+                margin-bottom: 5px;
+            }
         }
         .intro-heading {
-            height: 130px;
+            height: 15vh;
             margin: 10px 0 10px;
             background-image: url(../img/logos/circlestitle.png);
             background-size: contain;
