@@ -116,7 +116,7 @@ gulp.task('files:main', function () {
 })
 
 gulp.task('files:favicons', function () {
-  return gulp.src('./favicons//**/*')
+  return gulp.src('./img/favicons//**/*')
     .pipe(gulp.dest(mainBuildDir))
 })
 
@@ -141,7 +141,7 @@ gulp.task('browserSync', function () {
 })
 
 // SUBDOMAIN STUFF
-// todo: fix having to run gulp twice
+// todo: fix having to run gulp 5 times
 
 var subdomainList = []
 var subdomainRedirectList = []
