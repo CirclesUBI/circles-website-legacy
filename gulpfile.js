@@ -17,7 +17,7 @@ const mainBuildDir = './build'
 
 // Set the banner content
 var banner = ['/*!\n',
-  ' * Café Grundeinkommen Website - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
+  ' * Circles Website - <%= pkg.title %> v<%= pkg.version %> (<%= pkg.homepage %>)\n',
   ' * Copyright 2018-' + (new Date()).getFullYear(), ' <%= pkg.author %>\n',
   ' * Licensed under <%= pkg.license %> (https://github.com/CirclesUBI/cafe-grundeinkommen-website/blob/master/LICENSE)\n',
   ' */\n',

@@ -44,6 +44,7 @@
         "gulp-replace": "^1.0.0",
         "gulp-sass": "4.0.1",
         "gulp-uglify": "3.0.0",
+        "natives": "^1.1.6",
         "run-sequence": "^2.2.1"
     }
 }
