@@ -38,7 +38,7 @@
             color:$theme-clickable!important;
         }
   
-  }
+      }
     }
 
     .nav-item {
@@ -58,6 +58,13 @@
           &:hover:before {
             content: 'ADD'
           }
+        }
+      }
+      .nav-link-donate {
+        color: $theme-primary;
+        &.active,
+        &:hover {
+          color: $primary;
         }
       }
     }
