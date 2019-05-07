@@ -115,15 +115,21 @@ gulp.task('files:main', function () {
   ], { base: './' }).pipe(gulp.dest(mainBuildDir))
 })
 
+gulp.task('files:subfolders', function () {
+  return gulp.src([
+    './subfolders//**/*'
+  ], { base: './subfolders' }).pipe(gulp.dest(mainBuildDir))
+})
+
 gulp.task('files:favicons', function () {
   return gulp.src('./img/favicons//**/*')
     .pipe(gulp.dest(mainBuildDir))
 })
 
 // Move files to build
-gulp.task('devFiles', ['files:main', 'files:favicons', 'files:devSubdomains'])
-gulp.task('files', ['files:main', 'files:favicons'])
-gulp.task('subdomainFiles', ['files:main', 'files:favicons'])
+gulp.task('devFiles', ['files:main', 'files:subfolders', 'files:favicons', 'files:devSubdomains'])
+gulp.task('files', ['files:main', 'files:subfolders', 'files:favicons'])
+gulp.task('subdomainFiles', ['files:main', 'files:subfolders', 'files:favicons'])
 
 // JS
 gulp.task('js', ['js:minify'])
