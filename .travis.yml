@@ -5,11 +5,7 @@ node_js:
 install: npm install
 script:
   - npm test
-  - gulp subdomains1
-  - gulp subdomains2  
-  - gulp subdomains3  
-  - gulp subdomains4  
-  - gulp subdomains5  
+  - gulp build
 cache:
   directories:
     - node_modules
@@ -26,29 +22,7 @@ deploy:
     on:
       branch: master
     region: eu-central-1
-    cache_control: "max-age=21600"
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: wiki.joincircles.net
-    skip_cleanup: true
-    local_dir: build-wiki
-    acl: public_read
-    on:
-      branch: master
-    region: eu-central-1
-    cache_control: "max-age=21600"
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    bucket: docs.joincircles.net
-    skip_cleanup: true
-    local_dir: build-docs
-    acl: public_read
-    on:
-      branch: master
-    region: eu-central-1
-    cache_control: "max-age=21600"
+    cache_control: "max-age=21600"  
 after_deploy:
   - >
     if ! [ "$BEFORE_DEPLOY_RUN" ]; then
