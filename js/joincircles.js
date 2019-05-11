@@ -54,7 +54,9 @@ jQuery(document).ready(function () {
       'donate-bank-heading': 'Bank Transfer',
       'donate-bank-subheading': 'You can send your donation to IBAN *************',
       'donate-bitcoin-heading': 'Bitcoin',
-      'donate-bitcoin-subheading': 'Send to this address: *************'
+      'donate-bitcoin-subheading': 'Send to this address: *************',
+      'jobs-heading': 'Jobs',
+      'jobs-subheading': 'Below is a list of our current openings:'
     },
     'de': {
       'lang-select': 'Sprache',
@@ -91,7 +93,9 @@ jQuery(document).ready(function () {
       'partner-participate': 'Mitmachen? Nimm Kontakt mit uns auf!',
       'contact': 'Kontaktiere uns',
       'contact-text': 'Nachricht an uns',
-      'contact-chat': 'oder zum'
+      'contact-chat': 'oder zum',
+      'jobs-heading': 'Jobs',
+      'jobs-subheading': 'Nachfolgend finden Sie eine Liste unserer aktuellen Stellenangebote:'
     }
   })
 
