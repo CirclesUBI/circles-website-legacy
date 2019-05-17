@@ -1,8 +1,6 @@
 # Circles Website & Subdomains [![Build Status](https://travis-ci.org/CirclesUBI/cafe-grundeinkommen-website.svg?branch=master)](https://travis-ci.org/CirclesUBI/circles-website) [![Chat Server](https://chat.joincircles.net/api/v1/shield.svg?type=online&name=circles%20chat)](https://chat.joincircles.net) [![Backers](https://opencollective.com/circles/supporters/badge.svg)](https://opencollective.com/circles) [![Follow Circles](https://img.shields.io/twitter/follow/circlesubi.svg?label=follow+circles)](https://twitter.com/CirclesUBI) [![Circles License](https://img.shields.io/badge/license-APGLv3-orange.svg)](https://github.com/CirclesUBI/circles-website/blob/master/LICENSE)
 
-* www.joincircles.net - this is using cloudfront so it has a pinned SSL. both `http` & `https` work
-* **http**://wiki.joincircles.net (**no https!**) - redirects to https://github.com/CirclesUBI/circles-wiki - 
-* **http**://docs.joincircles.net (**no https!**) - redirects to https://github.com/CirclesUBI/docs/blob/master/Circles.md
+* www.joincircles.net - this is using cloudfront so it has a pinned SSL. `http` redirects to `https`
 
 ## Basic Income on the Blockchain
 
